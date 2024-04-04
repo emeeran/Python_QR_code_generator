@@ -1,17 +1,8 @@
-import qrcode
+import qrcode  # https://pypi.org/project/qrcode/
 
-qr = qrcode.QRCode(
-    version=1,
-    error_correction=qrcode.constants.ERROR_CORRECT_L,
-    box_size=10,
-    border=4,
-)
+source = input("Enter text you want to encode: ")
+file_name = input("Enter a name output file: ")
 
-data = input("Enter data to encode: ")
-file_name = input("Enter a name for file: ")
-
-qr.add_data(f"{data}")
-qr.make(fit=True)
-
-img = qr.make_image(fill_color="black", back_color="white")
+img = qrcode.make(f"{source}")
+type(img)  # qrcode.image.pil.PilImage
 img.save(f"{file_name}.png")
