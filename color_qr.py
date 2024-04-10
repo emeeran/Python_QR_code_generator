@@ -13,14 +13,6 @@ file_name = input("Enter a name for file: ")
 qr.add_data(f"{data}")
 qr.make(fit=True)
 
-img = qr.make_image(fill_color="red", back_color="white")
-# type(img)  # qrcode.image.pil.PilImage
-img = qr.make_image(
-    fill_color="red",
-    back_color="white",
-    module_color="blue",
-    background="yellow",
-    quiet_zone=10,
-)
+img = qr.make_image(fill_color="blue", back_color="white")
 img.save(f"{file_name}.png")
 print("QR code saved successfully!")
